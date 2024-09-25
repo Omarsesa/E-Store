@@ -1,0 +1,69 @@
+<div class="cart-container">
+  <h1>Your Cart</h1>
+
+  <div class="cart-items">
+    <div *ngFor="let item of cartItems" class="cart-item">
+      <div class="product-image">
+        <img [src]="item.product.imageUrl" alt="{{ item.product.name }}">
+      </div>
+      <div class="product-details">
+        <h3>{{ item.product.name }}</h3>
+        <p>{{ item.product.description }}</p>
+      </div>
+      <div class="product-quantity">
+        <label for="quantity">Quantity:</label>
+        <input type="number" [(ngModel)]="item.quantity" min="1">
+      </div>
+      <div class="product-price">
+        <p>{{ item.product.price }} L.E</p>
+      </div>
+      <div class="remove-item">
+        <button class="remove-btn" (click)="removeItem(item.product)">Remove</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="cart-total">
+    <h3>Total: {{ getTotal() }} L.E</h3>
+    <div class="cart-buttons">
+      <button class="checkout-btn clear-cart-btn" (click)="clearCart()">Clear Cart</button>
+      <button class="checkout-btn" (click)="proceedToCheckout()">Proceed to Checkout</button>
+    </div>
+  </div>
+  <div class="cart-container">
+    <a class="back-button" href="#">&#8592; Back To Shop</a>
+
+    <div class="cart-section">
+        <div class="coupon-shipping">
+            <div class="coupon">
+                <h3>Coupon Discount</h3>
+                <input type="text" placeholder="Coupon code" />
+                <button class="apply-coupon">Apply coupon</button>
+            </div>
+            <div class="shipping">
+                <h3>Calculate Shipping</h3>
+                <select>
+                    <option value="egypt">Egypt</option>
+                    <option value="usa">USA</option>
+                </select>
+                <select>
+                    <option value="cairo">Cairo</option>
+                    <option value="giza">Giza</option>
+                </select>
+                <button class="update-shipping">Update</button>
+            </div>
+        </div>
+
+        <div class="summary">
+            <h3>Cart Summary</h3>
+            <p>Subtotal: <span>{{ getSubtotal() }} L.E</span></p>
+            <p>Shipping: <span>{{ shippingCost }} L.E</span></p>
+            <p>Total: <span>{{ getTotal() }} L.E</span></p>
+            <button class="checkout-btn" (click)="proceedToCheckout()">Proceed to Checkout</button>
+        </div>
+    </div>
+</div>
+</div>
+
+
+

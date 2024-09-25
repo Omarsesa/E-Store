@@ -1,0 +1,42 @@
+<h2>Dashboard</h2>
+<p>Only Admin and Assistant can see this page.</p>
+
+<!-- User Management Table -->
+<h3>Manage Users</h3>
+<table>
+  <thead>
+    <tr >
+      <th>ID</th>
+      <th>Username</th>
+      <th>Role</th>
+      <th *ngIf="canEditRoles()">Actions</th>
+      <th *ngIf="canDeleteUsers()">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users" id="user-row">
+      <td>{{ user.id }}</td>
+      <td>{{ user.username }}</td>
+      <td>
+        <span *ngIf="!canEditRoles()">{{ user.role }}</span>
+        <select *ngIf="canEditRoles()" [(ngModel)]="user.role">
+          <option value="Admin">Admin</option>
+          <option value="Assistant">Assistant</option>
+          <option value="User">User</option>
+        </select>
+      </td>
+      <td *ngIf="canEditRoles()">
+        <button (click)="changeUserRole(user.id, user.role)">Update Role</button>
+      </td>
+      <td *ngIf="canDeleteUsers()">
+        <button (click)="deleteUser(user.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Product Management Table -->
+<app-product-management></app-product-management>
+
+<!-- Bestseller Management Table -->
+<app-bestseller-management></app-bestseller-management>

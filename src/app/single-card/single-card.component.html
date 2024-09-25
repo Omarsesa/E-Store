@@ -1,0 +1,11 @@
+<div class="card">
+  <img [src]="imageUrl" alt="{{name}}" class="card-image">
+  <div class="card-content">
+    <h3 class="card-title">{{name}}</h3>
+    <p class="card-description">{{description | slice:0:100}}{{description.length > 100 ? '...' : ''}}</p>
+    <div class="card-footer">
+      <span class="card-price">{{price | currency:'EGP '}}</span>
+      <button class="btn btn-primary" (click)="addToCart()">Add to Cart</button>
+    </div>
+  </div>
+</div>

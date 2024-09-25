@@ -1,0 +1,11 @@
+<div class="container">
+  <h2 class="section-title">Our Products</h2>
+  <div class="products-grid">
+    <app-single-card *ngFor="let product of products" 
+                     [name]="product.name"
+                     [description]="product.description"
+                     [price]="product.price" 
+                     [imageUrl]="product.imageUrl">
+    </app-single-card>
+  </div>
+</div>

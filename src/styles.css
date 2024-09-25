@@ -1,0 +1,57 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    padding: 0;
+    margin: 0;
+}
+:root {
+  /* Light mode variables */
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --accent-color: #e74c3c;
+  --background-color: #ecf0f1;
+  --text-color: #34495e;
+  --light-text-color: #ecf0f1;
+  --card-background: #ffffff;
+  --cart-color:#2c3e50;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --splash-background: #ecf0f1;
+}
+
+/* Dark mode variables */
+[data-theme="dark"] {
+  --primary-color: #34495e;
+  --secondary-color: #2980b9;
+  --accent-color: #c0392b;
+  --background-color: #1a1a1a;
+  --text-color: #ecf0f1;
+  --light-text-color: #ecf0f1;
+  --card-background: #2c3e50;
+  --cart-color:#ecf0f1;
+  --shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+  --splash-background: #1a1a1a;
+  
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1220px) {
+  .container {
+    max-width: 100%;
+  }
+}
+

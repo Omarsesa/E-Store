@@ -1,0 +1,81 @@
+<nav class="navbar">
+  <div class="container">
+    <div class="logo">
+      <a routerLink="/">
+        <img src="assets/images/MainLogo.svg" alt="WatchStore Logo" class="main-logo">
+      </a>
+    </div>
+    
+    <ul class="menu">
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+      
+      <li *ngIf="authService.isAdminOrAssistant()">
+        <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+      </li>
+      <li><a routerLink="/products" routerLinkActive="active">Products</a></li>
+      <li><a routerLink="/bestseller" routerLinkActive="active">Bestseller</a></li>
+      <li><a routerLink="/contactus" routerLinkActive="active">Contact Us</a></li>
+      
+    </ul>
+    
+    <div class="auth-links">
+      <button class="btn btn-icon search-icon" (click)="toggleSearchBar()">
+        <i class="fa-solid fa-search"></i>
+      </button>
+      <ng-container *ngIf="!authService.isAuthenticated(); else loggedIn">
+        
+        <a routerLink="/login" routerLinkActive="active" class="btn btn-secondary">Login</a>
+        <a routerLink="/signup" routerLinkActive="active" class="btn btn-primary">Sign Up</a>
+      </ng-container>
+      <ng-template #loggedIn>
+        <a routerLink="/cart" routerLinkActive="active" class="btn btn-icon cart-icon">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </a>
+        <button class="btn btn-secondary">{{ authService.getUsername() }}</button>
+        <button (click)="logout()" class="btn btn-primary" id="logout-button">Logout</button>
+      </ng-template>
+      
+    </div>
+  
+    <button (click)="toggleDarkMode()" class="btn btn-icon dark-mode-toggle" aria-label="Toggle dark mode">
+      <svg *ngIf="!isDarkMode" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+      <svg *ngIf="isDarkMode" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<div class="search-bar" [class.show]="showSearchBar">
+  <div class="container">
+    <input type="text" [(ngModel)]="searchQuery" (keyup.enter)="search()" placeholder="Search products...">
+    <button (click)="search()" class="btn btn-primary">Search</button>
+  </div>
+</div>
+
+<div class="search-popup" *ngIf="showPopup">
+  <div class="popup-content">
+    <button class="close-popup" (click)="closePopup()">×</button>
+    <ng-container *ngIf="matchingProducts.length > 0; else noMatch">
+      <app-single-card *ngFor="let product of matchingProducts"
+        [name]="product.name"
+        [description]="product.description"
+        [price]="product.price"
+        [imageUrl]="product.imageUrl">
+      </app-single-card>
+    </ng-container>
+    <ng-template #noMatch>
+      <p>No matching products found</p>
+    </ng-template>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<h3>Manage Bestsellers</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Image</th>
+      <th *ngIf="canEditProducts()">Actions</th>
+      <th *ngIf="canDeleteProducts()">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let bestseller of bestsellers" id="bestseller-row">
+      <td>{{ bestseller.id }}</td>
+      <td>{{ bestseller.name }}</td>
+      <td>{{ bestseller.description }}</td>
+      <td>${{ bestseller.price }}</td>
+      <td>
+        <img [src]="bestseller.imageUrl" alt="{{ bestseller.name }}" style="width: 50px; height: 50px;">
+      </td>
+      <td *ngIf="canEditProducts()">
+        <button (click)="editBestseller(bestseller)">Edit</button>
+      </td>
+      <td *ngIf="canDeleteProducts()">
+        <button (click)="deleteBestseller(bestseller.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Form to Add/Edit Bestseller -->
+<div class="input-wrapper mt-20">
+  <label for="bestsellerName">Bestseller Name:</label>
+  <input type="text" id="bestsellerName" [(ngModel)]="newBestseller.name" required>
+</div>
+<div class="input-wrapper">
+  <label for="bestsellerDescription">Description:</label>
+  <input type="text" id="bestsellerDescription" [(ngModel)]="newBestseller.description" required>
+</div>
+<div class="input-wrapper">
+  <label for="bestsellerPrice">Price:</label>
+  <input type="number" id="bestsellerPrice" [(ngModel)]="newBestseller.price" required>
+</div>
+<div class="input-wrapper">
+  <label for="bestsellerImage">Image URL:</label>
+  <input type="text" id="bestsellerImage" [(ngModel)]="newBestseller.imageUrl" required>
+</div>
+<button (click)="editingBestsellerId ? updateBestseller() : addBestseller()">
+  {{ editingBestsellerId ? 'Update Bestseller' : 'Add Bestseller' }}
+</button>

@@ -1,0 +1,198 @@
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  .cart-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: var(--card-background);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    
+  }
+  
+  h1, h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--cart-color);
+  }
+  
+  .cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .cart-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    background-color: var(--card-background);
+    align-items: center;
+    border-radius: 5px;
+  }
+  
+  .product-image img {
+    width: 100px;
+    border-radius: 5px;
+  }
+  
+  .product-details h3 {
+    color: var(--text-color);
+    text-align: left;
+  }
+  
+  .product-details p {
+    color: var(--text-color);
+  }
+  
+  .product-quantity input {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+  }
+  
+  .product-price p {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+  }
+  
+  .remove-btn, .checkout-btn, .apply-coupon, .update-shipping {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+  .remove-btn:hover, .checkout-btn:hover, .apply-coupon:hover, .update-shipping:hover {
+    background-color: var(--secondary-color);
+  }
+  
+  .cart-total {
+    text-align: right;
+    margin-top: 30px;
+  }
+  
+  .cart-total h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;  /* Increased margin for more space */
+  }
+  
+  .cart-total .checkout-btn {
+    margin-left: 10px;  /* Add space between buttons */
+  }
+  
+  .cart-total .clear-cart-btn {
+    background-color: #ff4136;  /* A different color for the Clear Cart button */
+  }
+  
+  .cart-total .clear-cart-btn:hover {
+    background-color: #dc352b;
+  }
+  
+  .back-button {
+    display: inline-block;
+    margin-bottom: 20px;
+    background-color: var(--primary-color);
+    padding: 10px 15px;
+    color: var(--background-color);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+  .back-button:hover {
+    background-color: var(--secondary-color);
+  }
+  
+  .cart-section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .coupon-shipping {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .coupon, .shipping, .summary {
+    background-color: var(--card-background);
+    padding: 20px;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  .coupon input, .shipping select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid var(--border-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  .summary {
+    width: 300px;
+  }
+  
+  .summary p {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  
+  .checkout-button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .cart-item {
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    .coupon-shipping, .cart-section {
+      flex-direction: column;
+    }
+    
+    .summary {
+      width: 100%;
+    }
+  }
+
+.cart-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;  /* This adds space between the buttons */
+}
+
+.cart-buttons .checkout-btn {
+  flex: 0 1 auto;  /* This allows the buttons to size based on their content */
+}
