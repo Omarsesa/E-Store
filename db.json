@@ -1,0 +1,156 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "admin",
+      "role": "Admin",
+      "cart": []
+    },
+    {
+      "id": "2",
+      "username": "assistant",
+      "password": "assistant",
+      "role": "Assistant",
+      "cart": []
+    },
+    {
+      "id": "3",
+      "username": "user1",
+      "password": "user",
+      "role": "User",
+      "cart": []
+    },
+    {
+      "id": "4",
+      "username": "user2",
+      "password": "user",
+      "role": "User",
+      "cart": []
+    },
+    {
+      "id": "41",
+      "username": "aya",
+      "password": "123",
+      "role": "Admin"
+    }
+  ],
+  "orders": [
+    {
+      "id": "06e2",
+      "items": [
+        {
+          "product": {
+            "name": "Product 1",
+            "description": "Description for Product 1",
+            "price": 200,
+            "imageUrl": "assets/images/3.jpg"
+          },
+          "quantity": 7
+        }
+      ],
+      "total": 1450
+    },
+    {
+      "id": "c917",
+      "items": [],
+      "total": 50
+    },
+    {
+      "id": "452d",
+      "items": [
+        {
+          "product": {
+            "name": "Product 1",
+            "description": "Description for Product 1",
+            "price": 200,
+            "imageUrl": "assets/images/3.jpg"
+          },
+          "quantity": 1
+        },
+        {
+          "product": {
+            "name": "Product 2",
+            "description": "Description for Product 2",
+            "price": 200,
+            "imageUrl": "assets/images/11.jpg"
+          },
+          "quantity": 1
+        }
+      ],
+      "total": 450
+    },
+    {
+      "id": "8a42",
+      "items": [],
+      "total": 50
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Product 1",
+      "description": "Description for Product 1",
+      "price": 200,
+      "imageUrl": "assets/images/3.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Product 2",
+      "description": "Description for Product 2",
+      "price": 200,
+      "imageUrl": "assets/images/11.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Product 3",
+      "description": "Description for Product 3",
+      "price": 300,
+      "imageUrl": "assets/images/4.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Product 4",
+      "description": "Description for Product 4",
+      "price": 100,
+      "imageUrl": "assets/images/5.jpg"
+    },
+    {
+      "id": "5",
+      "name": "Product 5",
+      "description": "Description for Product 5",
+      "price": 470,
+      "imageUrl": "assets/images/11.jpg"
+    },
+    {
+      "id": "4784",
+      "name": "Product 5",
+      "description": "Description for Product 5",
+      "price": 100,
+      "imageUrl": "assets/images/17.jpg"
+    }
+  ],
+  "bestseller": [
+    {
+      "id": "1",
+      "name": "Product 1",
+      "description": "Description for Product 1",
+      "price": 100,
+      "imageUrl": "assets/images/18.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Product 2",
+      "description": "Description for Product 2",
+      "price": 200,
+      "imageUrl": "assets/images/19.jpg"
+    },
+    {
+      "id": "6",
+      "name": "Product 6",
+      "description": "Description for Product 6",
+      "price": 300,
+      "imageUrl": "assets/images/17.jpg"
+    }
+  ]
+}
